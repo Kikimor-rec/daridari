@@ -21,7 +21,9 @@ export default function PricingPage() {
         <p className="max-w-2xl text-base text-slate-300">
           Every commission is built around your narrative and production needs. The
           tiers below outline starting points; final estimates depend on scope,
-          complexity, and deliverables.
+          complexity, and deliverables. If your budget is limited but the idea
+          feels right, reach out—there may be a collaboration path that suits us
+          both.
         </p>
       </section>
 
@@ -71,8 +73,10 @@ export default function PricingPage() {
         </h2>
         <p className="text-sm text-slate-300">
           I also collaborate on sound logos, implementation consulting, and
-          long-form ambient soundscapes. Share your brief and we&apos;ll map out the
-          audio journey together.
+          long-form ambient soundscapes. When a world speaks to me, I&apos;m open to
+          alternative collaboration models—skill swaps, revenue share, or other
+          creative exchanges. Share your brief and we&apos;ll map out the audio
+          journey together.
         </p>
         <div>
           <Link

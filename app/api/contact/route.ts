@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
 import type { ContactRequest } from "@/lib/data";
 
+const FALLBACK_RECIPIENTS = ["tayistrebitel@mail.ru", "tayistrebite10@gmail.ru"];
+
+function getRecipients() {
+  const configured = process.env.CONTACT_FORWARD_EMAILS?.split(",").map((value) => value.trim()).filter(Boolean);
+  return configured && configured.length > 0 ? configured : FALLBACK_RECIPIENTS;
+}
+
 function isValidRequest(payload: Partial<ContactRequest>): payload is ContactRequest {
   return Boolean(
     payload &&
@@ -29,6 +36,7 @@ export async function POST(request: Request) {
     // NOTE: Integrate with email provider (e.g., Resend) here.
     console.log("contact-request", {
       projectType: payload.projectType,
+      recipients: getRecipients(),
     });
 
     return NextResponse.json({ success: true });

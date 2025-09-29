@@ -72,16 +72,16 @@ Both commands should succeed without warnings or errors before deployment.
 
 1. Push the repository to GitHub (e.g. `Kikimor-rec/daridari`).
 2. In the Vercel dashboard, **New Project → Import** the GitHub repo.
-3. Set environment variables if/when the contact API is wired to a service (currently none required).
+3. Optional: set `CONTACT_FORWARD_EMAILS` if you want form submissions forwarded somewhere other than the default `tayistrebitel@mail.ru,tayistrebite10@gmail.ru`.
 4. Keep the default build command (`npm run build`) and output (`.next`).
 5. Deploy. Vercel will handle previews on each PR and production on `main`.
 
 ### Contact API Integration
 
-The contact route currently logs submissions to the server console. To connect a real email provider:
+The contact route currently logs submissions (and the fallback recipients) to the server console. To connect a real email provider:
 
 1. Add your provider SDK (e.g. Resend) and implement it in `app/api/contact/route.ts`.
-2. Expose required secrets via Vercel project settings → Environment Variables.
+2. Expose required secrets (plus `CONTACT_FORWARD_EMAILS` if you want to override the defaults) via Vercel project settings → Environment Variables.
 3. Redeploy after updating the runtime code.
 
 ## Maintenance Checklist

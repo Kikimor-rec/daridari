@@ -3,7 +3,10 @@ import Link from "next/link";
 import { portfolioItems } from "@/lib/data";
 import { PortfolioCard } from "@/components/portfolio-card";
 
-const LINKTREE_URL = "https://linktr.ee/daridai";
+const LINKTREE_URL = "https://linktr.ee/stanislavdaridai";
+const BANDCAMP_URL = "https://daridai.bandcamp.com/album/lost-mark-ost";
+const SOUNDCLOUD_URL = "https://soundcloud.com/daridai/tracks";
+const ITCH_URL = "https://itch.io/profile/zajigalka";
 const FABLES_URL = "https://fables.monster";
 
 export const metadata: Metadata = {
@@ -32,7 +35,8 @@ export default function PortfolioPage() {
         <p className="max-w-2xl text-base text-slate-300">
           A glimpse into the narrative-driven worlds I score — from in-house
           tabletop RPG adventures at Fables Monster Studio to personal ambient
-          releases and collaborations.
+          releases and collaborations. I&apos;m currently remastering older works,
+          so expect fresh selections soon.
         </p>
       </section>
 
@@ -52,8 +56,7 @@ export default function PortfolioPage() {
           ))}
         </div>
         <p className="text-xs text-slate-500">
-          Want to learn more about the studio? Visit
-          {" "}
+          Want to learn more about the studio? Visit{" "}
           <a
             className="text-slate-200 underline decoration-slate-500/40 underline-offset-4 transition hover:decoration-slate-200"
             href={FABLES_URL}
@@ -61,7 +64,17 @@ export default function PortfolioPage() {
             rel="noreferrer"
           >
             fables.monster ↗
+          </a>{" "}
+          or explore narrative experiments on{" "}
+          <a
+            className="text-slate-200 underline decoration-slate-500/40 underline-offset-4 transition hover:decoration-slate-200"
+            href={ITCH_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            itch.io ↗
           </a>
+          .
         </p>
       </section>
 
@@ -105,11 +118,27 @@ export default function PortfolioPage() {
         <div className="flex flex-wrap gap-3 text-sm text-slate-300">
           <a
             className="inline-flex items-center justify-center rounded-full bg-slate-100 px-5 py-2 text-xs font-semibold text-slate-950 transition hover:bg-slate-200"
+            href={BANDCAMP_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Bandcamp album
+          </a>
+          <a
+            className="inline-flex items-center justify-center rounded-full border border-slate-600 px-5 py-2 text-xs font-semibold text-slate-200 transition hover:border-slate-400 hover:text-white"
+            href={SOUNDCLOUD_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            SoundCloud playlist
+          </a>
+          <a
+            className="inline-flex items-center justify-center rounded-full border border-slate-600 px-5 py-2 text-xs font-semibold text-slate-200 transition hover:border-slate-400 hover:text-white"
             href={LINKTREE_URL}
             target="_blank"
             rel="noreferrer"
           >
-            Listen on Linktree
+            Linktree hub
           </a>
           <Link
             className="inline-flex items-center justify-center rounded-full border border-slate-600 px-5 py-2 text-xs font-semibold text-slate-200 transition hover:border-slate-400 hover:text-white"

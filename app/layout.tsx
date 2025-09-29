@@ -52,7 +52,7 @@ export default function RootLayout({
                 </Link>
                 <a
                   className="hidden rounded-full bg-slate-100 px-4 py-2 text-xs font-medium text-slate-950 transition hover:bg-slate-200 sm:inline-flex"
-                  href="https://linktr.ee/daridai"
+                  href="https://linktr.ee/stanislavdaridai"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -73,7 +73,7 @@ export default function RootLayout({
               <p>© {year} Stanislav DariDai. All rights reserved.</p>
               <a
                 className="inline-flex items-center gap-2 transition hover:text-slate-200"
-                href="https://linktr.ee/daridai"
+                href="https://linktr.ee/stanislavdaridai"
                 target="_blank"
                 rel="noreferrer"
               >

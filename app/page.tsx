@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { AnimatedSection, AnimatedButton } from "@/components/animations";
 
-const LINKTREE_URL = "https://linktr.ee/daridai";
+const LINKTREE_URL = "https://linktr.ee/stanislavdaridai";
+const BANDCAMP_URL = "https://daridai.bandcamp.com/album/lost-mark-ost";
+const SOUNDCLOUD_URL = "https://soundcloud.com/daridai/tracks";
 const FABLES_URL = "https://fables.monster";
 
 export default function HomePage() {
@@ -32,9 +34,8 @@ export default function HomePage() {
             </p>
             <p className="max-w-xl text-base leading-relaxed text-slate-300">
               I craft atmospheric music and immersive soundscapes for tabletop RPGs
-              and other narrative-driven projects. When I&apos;m not composing,
-              you&apos;ll find me exploring guitar textures or listening to my
-              favourite artist Aurora.
+              and other narrative-driven projects. I explore the boundaries of
+              electronic music and listen to Aurora :)
             </p>
           </AnimatedSection>
           
@@ -49,12 +50,23 @@ export default function HomePage() {
               </svg>
             </AnimatedButton>
             <AnimatedButton
-              href={LINKTREE_URL}
+              href={BANDCAMP_URL}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-full border border-slate-500 bg-slate-900/50 px-8 py-3 text-sm font-semibold text-slate-200 backdrop-blur-sm transition-all duration-300 hover:border-slate-400 hover:bg-slate-800/60 hover:text-white"
             >
-              Listen
+              Bandcamp
+              <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12 6.5" />
+              </svg>
+            </AnimatedButton>
+            <AnimatedButton
+              href={SOUNDCLOUD_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-slate-500 bg-slate-900/50 px-8 py-3 text-sm font-semibold text-slate-200 backdrop-blur-sm transition-all duration-300 hover:border-slate-400 hover:bg-slate-800/60 hover:text-white"
+            >
+              SoundCloud
               <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12 6.5" />
               </svg>
@@ -82,15 +94,15 @@ export default function HomePage() {
             <ul className="space-y-4 text-sm text-slate-300">
               <li className="flex items-center gap-3 group">
                 <span className="text-lg transition-transform group-hover:scale-110">🎲</span>
-                <span>Original scores for tabletop RPGs and narrative media</span>
+                <span>Scores for tabletop RPGs and narrative media</span>
               </li>
               <li className="flex items-center gap-3 group">
                 <span className="text-lg transition-transform group-hover:scale-110">🎮</span>
-                <span>Immersive soundscapes for sci-fi, horror, and fantasy</span>
+                <span>Soundscapes for sci-fi, horror, and fantasy</span>
               </li>
               <li className="flex items-center gap-3 group">
                 <span className="text-lg transition-transform group-hover:scale-110">🎸</span>
-                <span>Guitar-driven textures that blend organic and synthetic tones</span>
+                <span>Not focusing on a single genre</span>
               </li>
             </ul>
           </div>
@@ -148,7 +160,7 @@ export default function HomePage() {
               </div>
               
               <p className="pl-8 text-base leading-relaxed text-slate-300">
-                My background as a guitarist helps me blend organic strings with ambient synths and field recordings, creating music that supports sci-fi, horror and fantasy settings. A self-professed big Aurora fan, I draw inspiration from expressive vocals and Nordic atmospheres.
+                In my music, I combine layers of synthetic soundscapes, processed guitars, and retro synthesizers. I&apos;m developing as a musician, exploring new ways to reimagine familiar genres. I&apos;m inspired by artists from Skrillex and Lorn to Daughter and Aurora.
               </p>
             </AnimatedSection>
           </div>
@@ -246,16 +258,38 @@ export default function HomePage() {
                   </h3>
                 </div>
                 <p className="text-sm leading-relaxed text-slate-300">
-                  Outside of Fables Monster I share personal pieces and collaborations on my SoundCloud. These tracks explore ambient soundscapes, guitar improvisations and experimental sound design.
+                  Outside of Fables Monster I share personal pieces and collaborations on Bandcamp and SoundCloud. These tracks explore ambient soundscapes, guitar improvisations and experimental sound design.
                 </p>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
+                  <AnimatedButton
+                    href={BANDCAMP_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-900/50 px-4 py-2 text-sm font-medium text-slate-200 backdrop-blur-sm transition-all duration-300 hover:border-slate-400 hover:text-white"
+                  >
+                    Bandcamp
+                    <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </AnimatedButton>
+                  <AnimatedButton
+                    href={SOUNDCLOUD_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-900/50 px-4 py-2 text-sm font-medium text-slate-200 backdrop-blur-sm transition-all duration-300 hover:border-slate-400 hover:text-white"
+                  >
+                    SoundCloud
+                    <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </AnimatedButton>
                   <AnimatedButton
                     href={LINKTREE_URL}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-900/50 px-4 py-2 text-sm font-medium text-slate-200 backdrop-blur-sm transition-all duration-300 hover:border-slate-400 hover:text-white"
                   >
-                    Listen Now
+                    Linktree
                     <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
@@ -279,7 +313,7 @@ export default function HomePage() {
             What I offer
           </h2>
         </div>
-        
+
         <div className="grid gap-6 md:grid-cols-2">
           <AnimatedSection delay={0.1} className="group">
             <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 p-6 backdrop-blur-sm transition-all duration-500 hover:border-slate-600/60 hover:bg-slate-800/50">

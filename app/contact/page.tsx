@@ -9,11 +9,20 @@ const projectTypes = [
   "Trailer / teaser",
   "Audio branding",
   "Consulting",
+  "Collaboration / experience exchange",
   "Other",
 ];
 
-const LINKTREE_URL = "https://linktr.ee/daridai";
+const LINKTREE_URL = "https://linktr.ee/stanislavdaridai";
+const BANDCAMP_URL = "https://daridai.bandcamp.com/album/lost-mark-ost";
+const SOUNDCLOUD_URL = "https://soundcloud.com/daridai/tracks";
+const ITCH_URL = "https://itch.io/profile/zajigalka";
 const FABLES_URL = "https://fables.monster";
+const DISCORD_HANDLE = "daridaridai";
+const DIRECT_EMAILS = [
+  "tayistrebitel@mail.ru",
+  "tayistrebite10@gmail.ru",
+];
 
 const initialForm: ContactRequest = {
   name: "",
@@ -30,6 +39,7 @@ type FeedbackState = { status: RequestStatus; error?: string };
 export default function ContactPage() {
   const [form, setForm] = useState<ContactRequest>(initialForm);
   const [feedback, setFeedback] = useState<FeedbackState>({ status: "idle" });
+  const [discordCopied, setDiscordCopied] = useState(false);
 
   const updateField = <K extends keyof ContactRequest>(key: K, value: ContactRequest[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -69,6 +79,17 @@ export default function ContactPage() {
     }
   };
 
+  const handleCopyDiscord = async () => {
+    try {
+      await navigator.clipboard.writeText(DISCORD_HANDLE);
+      setDiscordCopied(true);
+      setTimeout(() => setDiscordCopied(false), 1500);
+    } catch (error) {
+      console.error("discord-copy-error", error);
+      setDiscordCopied(false);
+    }
+  };
+
   return (
     <div className="space-y-16">
       <section className="space-y-6">
@@ -77,7 +98,7 @@ export default function ContactPage() {
           Tell me about your world
         </h1>
         <p className="max-w-2xl text-base text-slate-300">
-          Share a few details about your story, timeline, and sonic goals. I typically respond within two business days with next steps and a tailored collaboration plan.
+          Share a few details about your story, timeline, and sonic goals. I typically respond within two business days via email or Discord with next steps and a tailored collaboration plan.
         </p>
       </section>
 
@@ -158,7 +179,7 @@ export default function ContactPage() {
 
           {feedback.status === "success" ? (
             <p className="rounded-2xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
-              Thank you! I&apos;ll review your message and respond shortly.
+              Thank you! I&apos;ll reply from tayistrebitel@mail.ru / tayistrebite10@gmail.ru or reach out on Discord soon.
             </p>
           ) : null}
 
@@ -171,14 +192,49 @@ export default function ContactPage() {
 
         <aside className="space-y-8 rounded-3xl border border-slate-800 bg-slate-900/30 p-8 text-sm text-slate-300">
           <div className="space-y-3">
-            <h2 className="text-lg font-semibold text-slate-100">Direct links</h2>
+            <h2 className="text-lg font-semibold text-slate-100">Direct channels</h2>
             <ul className="space-y-2">
+              {DIRECT_EMAILS.map((email) => (
+                <li key={email}>
+                  <a
+                    className="transition hover:text-white"
+                    href={`mailto:${email}`}
+                  >
+                    {email}
+                  </a>
+                </li>
+              ))}
+              <li className="flex flex-wrap items-center gap-2">
+                <span>Discord:</span>
+                <code className="rounded-full bg-slate-800/70 px-3 py-1 text-xs text-slate-200">
+                  {DISCORD_HANDLE}
+                </code>
+                <button
+                  type="button"
+                  onClick={handleCopyDiscord}
+                  className="rounded-full border border-slate-600 px-3 py-1 text-xs font-medium text-slate-200 transition hover:border-slate-400 hover:text-white"
+                >
+                  {discordCopied ? "Copied" : "Copy"}
+                </button>
+              </li>
               <li>
                 <a
                   className="transition hover:text-white"
-                  href="mailto:contact@daridai.com"
+                  href={BANDCAMP_URL}
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  contact@daridai.com
+                  Bandcamp ↗
+                </a>
+              </li>
+              <li>
+                <a
+                  className="transition hover:text-white"
+                  href={SOUNDCLOUD_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  SoundCloud ↗
                 </a>
               </li>
               <li>
@@ -194,6 +250,16 @@ export default function ContactPage() {
               <li>
                 <a
                   className="transition hover:text-white"
+                  href={ITCH_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  itch.io ↗
+                </a>
+              </li>
+              <li>
+                <a
+                  className="transition hover:text-white"
                   href={FABLES_URL}
                   target="_blank"
                   rel="noreferrer"
@@ -202,6 +268,9 @@ export default function ContactPage() {
                 </a>
               </li>
             </ul>
+            <p className="text-xs text-slate-500">
+              Form submissions forward to both email addresses above. Feel free to ping me on Discord for quick syncs.
+            </p>
           </div>
           <div className="space-y-3">
             <h2 className="text-lg font-semibold text-slate-100">Project checklist</h2>
